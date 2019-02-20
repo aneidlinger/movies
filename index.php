@@ -41,6 +41,17 @@
 </head>
 <body>
     <h1>Hello World</h1>
+    <?php foreach($movies as $row) { ?>
+        <div><a href="movie.php?movie=<?php echo $row['movie_id']; ?>"><?php echo $row['movie_id']; ?></a></div>
+        <div><a href="movie.php?movie=<?php echo $row['movie_id']; ?>"><?php echo $row['title']; ?></a></div>
+        <div><?php echo $row['release_date']; ?></div>
+        <div><a href="person.php?person=<?php echo $row['person_id']; ?>"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a></div>
+        <div><?php echo $row['rating']; ?></div>
+        <div><?php echo $row['rotten_rating']; ?></div>
+    <?php
+    }
+    ?>
+
     
 </body>
 </html>
