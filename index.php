@@ -41,7 +41,6 @@
 </head>
 <body>
     <h1>Hello World</h1>
-<<<<<<< HEAD
 
     <div class="container-fluid main-title">
         <div class="row">
@@ -73,8 +72,6 @@
             <div class="col-2"><?php echo $row['rotten_rating']; ?></div>
         </div>
     </div>
-=======
->>>>>>> 71c10594a9014b020be0e6990f81d9e98ba71291
     <?php
     }
     ?>
