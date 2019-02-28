@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>CIS 282 | Movie</title>
-
     <?php
     require('includes/config.php');
     require('models/movie_model.php');
     ?>
 
+<?php foreach($movieBio as $row) { ?>
+    <title>CIS 282 | <?php echo $row['title']; ?></title>
+
 </head>
 <body>
+
     
-    <?php foreach($movieBio as $row) { ?>
         <div class="container-fluid">
             <div class="row movie-headers">
                 <div class="col-7 offset-md-1">
@@ -43,13 +44,34 @@
                 </div>
             </div>
         </div>
-        <div class="row movie-desc">
-            <div class="col-7 offset-md-1">
-                <?php echo $row['description']; ?>
+        
+        <div>
+            <div class="row movie-desc">
+                <div class="col-7 offset-md-1">
+                    <?php echo $row['description']; ?>
+                </div>
             </div>
         </div>
     <?php 
     } ?>
+
+<?php foreach($movieCast as $row) { ?>
+    <div class="container-fluid">
+        <div class="row cast">
+            <div class="col-4 offset-md-1">
+                <h4>
+                    <a href="person.php?person=<?php echo $row['person_id']; ?>">
+                        <?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?>
+                    </a>
+                </h4>
+            </div>
+            <div class="col-7"><h4><?php echo $row['character_nm']; ?></h4></div> 
+        </div>
+    </div>
+<?php 
+}
+?>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
