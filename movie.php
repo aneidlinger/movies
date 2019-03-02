@@ -17,55 +17,54 @@
 
 </head>
 <body>
-
-    
-        <div class="container-fluid">
-            <div class="row movie-headers">
-                <div class="col-7 offset-md-1">
-                    <h2><?php echo $row['title']; ?>(<?php echo $row['year']; ?>)</h2>
-                    <div class="row movie-details">
-                        <div class="col-4 offset-md-1 text-left">
-                            Director: <a href="persons.php?person=<?php echo $row['person_id']; ?>">
-                            <?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a> | 
-                        </div>
-                        <div class="col-1 text-center">
-                            <?php echo $row['rating']; ?>
-                        </div> |
-                        <div class="col-3 text-center">
-                            <?php echo $row['duration']; ?> min.
-                        </div> |
-                        <div class="col-2 text-center">
-                            <?php echo $row['release_date']; ?> (<?php echo $row['language']; ?>)
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <h3><?php echo $row['rotten_rating']; ?></h3>
-                </div>
+    <!-- Container -->
+    <div class="container-fluid">
+        <!-- First row -->
+        <div class="row movie-headers">
+            <div class="col-7 offset-md-2">
+                <h2><?php echo $row['title']; ?>(<?php echo $row['year']; ?>)</h2>
+            </div>
+            <div class="col-1 text-right">
+                <h3><?php echo $row['rotten_rating']; ?></h3>
             </div>
         </div>
-        
-        <div>
-            <div class="row movie-desc">
-                <div class="col-7 offset-md-1">
-                    <?php echo $row['description']; ?>
-                </div>
+        <!-- Second row -->
+        <div class="row movie-details">
+            <div class="col-2 offset-md-2 text-left border-right">
+                Director: <a href="persons.php?person=<?php echo $row['person_id']; ?>">
+                <?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
+            </div>
+            <div class="col-2 text-center border-right">
+                <?php echo $row['rating']; ?>
+            </div>
+            <div class="col-2 text-center border-right">
+                <?php echo $row['duration']; ?> min.
+            </div>
+            <div class="col-2 text-right">
+                <?php echo $row['release_date']; ?> (<?php echo $row['language']; ?>)
             </div>
         </div>
-    <?php 
-    } ?>
+        <!-- Third row -->
+        <div class="row movie-desc">
+            <div class="col-8 offset-md-2">
+                <?php echo $row['description']; ?>
+            </div>
+        </div>
+    </div>
+<?php 
+} ?>
 
 <?php foreach($movieCast as $row) { ?>
     <div class="container-fluid">
         <div class="row cast">
-            <div class="col-4 offset-md-1">
+            <div class="col-3 offset-md-3">
                 <h4>
                     <a href="person.php?person=<?php echo $row['person_id']; ?>">
                         <?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?>
                     </a>
                 </h4>
             </div>
-            <div class="col-7"><h4><?php echo $row['character_nm']; ?></h4></div> 
+            <div class="col-3"><h4><?php echo $row['character_nm']; ?></h4></div> 
         </div>
     </div>
 <?php 

@@ -1,6 +1,7 @@
 <?php
 
 $movieId = $_GET['movie'];
+$personId = $_GET['person'];
 
 // Get movie details
 $strSQL = 
@@ -28,10 +29,10 @@ $movieBio = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $strSQL = "SELECT
 c.movie_id
 , p.person_id
-, p.first_nm as first_name
-, p.last_nm as last_name
+, p.first_nm AS first_name
+, p.last_nm AS last_name
 , c.character_nm
-, r.role_nm as role
+, r.role_nm AS role
 FROM 
 cis282movies.movies m
 , cis282movies.persons p
@@ -42,7 +43,7 @@ c.role_id = r.role_id
 AND c.person_id = p.person_id
 AND m.movie_id = c.movie_id
 AND m.movie_id = $movieId
-order by c.role_id
+ORDER BY c.role_id, last_name
 ";
 
 // Get Result
@@ -50,6 +51,19 @@ $result = mysqli_query($connect, $strSQL);
 
 // Fetch Data
 $movieCast = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Get person details
+$strSQL =
+    "SELECT first_nm AS first_name, last_nm AS last_name,
+    dob AS date_of_birth, dod AS date_of_death, gender, pob AS place_of_birth
+    FROM cis282movies.persons
+    WHERE person_id = $personId";
+
+// Get result
+$result = mysqli_query($connect, $strSQL);
+
+// Fetch data
+$personInfo = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Free result
 mysqli_free_result($result);
