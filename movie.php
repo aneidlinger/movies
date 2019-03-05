@@ -19,19 +19,21 @@
 <body>
     <!-- Container -->
     <div class="container-fluid">
+        <div class="col-1 offset-md-9 mr-md-2"><a href="index.php">Start Over</a></div>
+
         <!-- First row -->
         <div class="row movie-headers">
-            <div class="col-7 offset-md-2">
+            <div class="col-5 offset-md-2">
                 <h2><?php echo $row['title']; ?>(<?php echo $row['year']; ?>)</h2>
             </div>
-            <div class="col-1 text-right">
-                <h3><?php echo $row['rotten_rating']; ?></h3>
+            <div class="col-3 text-right">
+                <h3>Rotten Tomatoes: <?php echo $row['rotten_rating']; ?></h3>
             </div>
         </div>
         <!-- Second row -->
         <div class="row movie-details">
             <div class="col-2 offset-md-2 text-left border-right">
-                Director: <a href="persons.php?person=<?php echo $row['person_id']; ?>">
+                Director: <a href="person.php?person=<?php echo $row['person_id']; ?>">
                 <?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
             </div>
             <div class="col-2 text-center border-right">

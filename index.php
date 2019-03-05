@@ -41,7 +41,7 @@
 </head>
 <body>
 
-    <h1>Hello World</h1>
+    <h1>Movie Database</h1>
 
     <div class="container-fluid main-title">
         <div class="row">
